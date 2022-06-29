@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import  {Navbar}  from './components/Navbar';
+import {Footer} from './components/Footer'
+import {Routes} from './components/Routes'
 
-export default App;
+const App = () =>  {
+    const [darkTheme, setDarkTheme] = useState(false);
+
+    return (
+      <div className={darkTheme ? 'dark' : ''}>
+          
+          {/* Body */}
+          <div className='bg-red-100 dark:bg-gray-900 min-h-screen dark:text-white '>
+            
+            {/* NavBar */}
+            <Navbar darkTheme={darkTheme} setDarkTheme={setDarkTheme} />
+  
+            {/* Routes for Video, Search & News */}
+            <Routes/>
+  
+            {/* Footer */}
+            <Footer />
+  
+          </div>
+      </div>
+    )
+  }
+    
+  export default App;
+
+  // bg-red-100    dark:bg-gradient-to-r from-purple-500 to-pink-500 
